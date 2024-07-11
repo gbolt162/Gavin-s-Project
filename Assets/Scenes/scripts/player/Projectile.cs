@@ -6,6 +6,7 @@ public class Projectile : MonoBehaviour
 {
     [SerializeField] private GameObject _bullet;
     [SerializeField] private float _speed = 5f;
+    public int timer = 1000;
     private void OnBecameInvisible()
     {
 
@@ -13,23 +14,23 @@ public class Projectile : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-
     }
 
     // Update is called once per frame
     void Update()
     {
+        timer--;
+        if(timer < 0){
+           Destroy(this.gameObject);
 
+        }
     }
 
     void MoveFoward()
     { }
     void CheckBoundary()
     {
-        if (transform.position.x > 10)
-        {
-            Destroy(this.gameObject);
-        }
+       
     }
 }
 
